@@ -5,15 +5,15 @@
 
 |Column   |Type      |Option |
 |:--------|:------|:----------|
-|name     |string |index: true, nill: false, unique: true|
-|email    |string |nill: false, unique: true|
-|password |string |nill: false|
+|name     |string |index: true, null: false, unique: true|
+|email    |string |null: false, unique: true|
+|password |string |null: false|
 
 ### Association
 
 - has_many :messages
-- has_many :groups, through: :group_users
-- has_many :group_users
+- has_many :groups, through: :members
+- has_many :members
 
 
 
@@ -21,21 +21,20 @@
 
 |Column   |Type      |Option |
 |:--------|:------|:----------|
-|name     |string |index: true, nill: false|
+|name     |string |index: true, null: false|
 
 ### Association
 - has_many :messages
-- has_many :users, through: :group_users
-- has_many :group_users
-- accepts_nested_attributes_for :group_users
+- has_many :users, through: :members
+- has_many :members
 
 
-## group_users table
+## members table
 
 |Column   |Type      |Option |
 |:--------|:------|:----------|
-|user_id  |integer|nill: false, foreign_key: true|
-|group_id |integer|nill: false, foreign_key: true|
+|user_id  |integer|null: false, foreign_key: true|
+|group_id |integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -46,10 +45,10 @@
 
 |Column   |Type      |Option |
 |:--------|:------|:----------|
-|body     |text   |nill: false|
+|body     |text   |null: false|
 |image    |string | -         |
-|user_id  |integer|nill: false, foreign_key: true|
-|group_id |integer|nill: false, foreign_key: true|
+|user_id  |integer|null: false, foreign_key: true|
+|group_id |integer|null: false, foreign_key: true|
 
 
 ### Association
