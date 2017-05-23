@@ -1,0 +1,170 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  .attention {
+    width: 100%;
+    height: 30px;
+    background-color: $blue;
+    text-align: center;
+    p {
+      padding-top: 3px;
+      color: $white;
+    }
+  }
+  height: 100%;
+  .chat-side {
+    float: left;
+    height: 100%;
+    width: 300px;
+    background: #2f3e51;
+    &__user {
+      height: 28px * 2 + 40px;
+      background: #253141;
+      padding: 0 20px;
+      &-name {
+        padding-top: 35px;
+        font-size: 16px;
+        font-weight: bold;
+        color: $white;
+        float: left;
+        width: 80%;
+      }
+      a {
+        float: left;
+        i {
+        color: $white;
+        padding-top: 40px;
+        margin-right: 10px;
+        }
+      }
+    }
+    &__groups {
+      &-list {
+        .chat-side__group {
+          padding: 20px;
+          &-name {
+            font-size: 15px;
+            color: $white;
+            margin-bottom: 5px;
+          }
+          &-message {
+            font-size: 11px;
+            color: $white;
+          }
+        }
+
+      }
+    }
+  }
+  .chat-main {
+    float: left;
+    width: calc(100vw - 300px);
+    background-color: #AAAAAA;
+    height: 100%;
+    &__header {
+      padding: 0px 40px;
+      height:  28px * 2 + 40px;
+      border-bottom: 1px solid #eeeeee;
+      &--group {
+        @include clearfix;
+        &-name {
+          padding-top: 35px;
+          padding-bottom: 15px;
+          font-size: 20px;
+          color: #333333;
+          float: left;
+        }
+        &-edit-btn {
+          color: $blue;
+          font-size: 15px;
+          padding: 12.5px 20px;
+          margin: 28px 20px 0;
+          border: 1px solid $blue;
+          float: right;
+        }
+      }
+      &-members {
+        font-size: 12px;
+        color: #999999;
+      }
+    }
+    &__body {
+      height: calc(100% - 187px - 30px); // 187 = header + footer + headerのborder1px
+                                         // 30 =attention
+      padding: 0 40px;
+      &--message {
+        @include clearfix;
+        &-name {
+          padding-top: 40px;
+          font-size: 16px;
+          font-weight: bold;
+          color: $chat-color;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          float: left;
+        }
+        &-time {
+          float: left;
+          padding-top: 46px;
+          font-size: 12px;
+          color: #999999;
+        }
+        &-body {
+          float: left;
+          font-size: 14px;
+          color: $chat-color;
+          width: 100%;
+        }
+      }
+    }
+    &__footer {
+      width: 100%;
+      height: 90px;
+      &-form {
+        width: calc(100% - 40px - 15px - 100px - 40px);
+        height: 50px;
+        margin-top: 20px;
+        margin-left: 40px;
+        margin-right: 15px;
+        background-color: $white;
+        float: left;
+        p {
+          float: left;
+          padding-top: 13px;
+          padding-left: 10px;
+          font-size: 16px;
+          color: $chat-color;
+        }
+        i {
+          float: right;
+          padding-top: 16px;
+          padding-right: 10px;
+        }
+      }
+      .submit-btn {
+        float: left;
+        width: 100px;
+        height: 50px;
+        background-color: $blue;
+        float: left;
+        margin-top: 20px;
+        p {
+          color: $white;
+          padding-top: 13px;
+          padding-left: 27px;
+        }
+      }
+    }
+  }
+}
+
