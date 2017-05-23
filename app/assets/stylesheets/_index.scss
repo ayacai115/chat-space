@@ -13,7 +13,7 @@ html {
 body {
   .attention {
     width: 100%;
-    height: 30px;
+    height: $attention-height;
     background-color: $blue;
     text-align: center;
     p {
@@ -73,8 +73,8 @@ body {
     height: 100%;
     &__header {
       padding: 0px 40px;
-      height:  28px * 2 + 40px;
-      border-bottom: 1px solid #eee;
+      height: $header-height;
+      border-bottom: $header-border-bottom solid #eee;
       &--group {
         @include clearfix;
         &-name {
@@ -99,8 +99,7 @@ body {
       }
     }
     &__body {
-      height: calc(100% - 187px - 30px); // 187 = header + footer + headerのborder1px
-                                         // 30 =attention
+      height: calc(100% - #{$attention-height} - #{$header-height} - #{$header-border-bottom} - #{$footer-height});
       padding: 0 40px;
       &--message {
         @include clearfix;
@@ -129,7 +128,7 @@ body {
     }
     &__footer {
       width: 100%;
-      height: 90px;
+      height: $footer-height;
       &-form {
         width: 100%;
         height: 50px;
