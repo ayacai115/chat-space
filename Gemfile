@@ -51,3 +51,5 @@ gem "haml-rails", "~> 0.9"
 gem 'devise'
 
 gem 'font-awesome-rails'
+
+gem 'erb2haml'
