@@ -1,5 +1,14 @@
 .chat-group-form
   %h1 新規チャットグループ
+  - if @group.errors.any?
+    .chat-group-form__errors
+      %h2
+        = @group.errors.count
+      %ul
+        - @group.errors.full_messages.each do |msg|
+          %li
+            = msg
+
   = form_for @group, html: { id: 'new_chat_group', class: 'new_chat_group', "accept-charset" => "UTF-8" } do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
@@ -39,5 +48,3 @@
       .chat-group-form__field--left
       .chat-group-form__field--right
         = f.submit('Submit', :class => "chat-group-form__action-btn")
-
-

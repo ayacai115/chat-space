@@ -7,8 +7,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-    Group.create(create_params)
-    redirect_to controller: :groups, action: :index
+    @group = Group.new(create_params)
+    if @group.save
+      redirect_to root
+    else
+      render new_group_path
+    end
   end
 
   def edit
