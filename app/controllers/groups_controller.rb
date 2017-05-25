@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(create_params)
     if @group.save
-      redirect_to root
+      redirect_to root_path
     else
       render new_group_path
     end
