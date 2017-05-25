@@ -28,6 +28,14 @@
         %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
       .chat-group-form__field--right
         / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+
+      = form_for(@group) do |f|
+        .field
+          = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do |g|
+            = g.label { g.check_box + g.text }
+
+
+
         / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
         /
           <div id='chat-group-users'>
@@ -40,3 +48,4 @@
       .chat-group-form__field--left
       .chat-group-form__field--right
         %input.chat-group-form__action-btn{"data-disable-with" => "Save", :name => "commit", :type => "submit", :value => "Save"}/
+
