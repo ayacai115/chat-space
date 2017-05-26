@@ -54,15 +54,14 @@ body {
           padding: 20px;
           &-name {
             font-size: 15px;
-            color: $white;
             margin-bottom: 5px;
+            color: $white;
           }
           &-message {
             font-size: 11px;
             color: $white;
           }
         }
-
       }
     }
   }
