@@ -16,15 +16,20 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
+    current_group
   end
 
   def update
-    @group = Group.find(params[:id])
-    @group.update(create_params)
-    redirect_to root_path
+    if current_group.update(create_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
+  def current_group
+    @group = Group.find(params[:id])
+  end
 
   private
   def create_params
