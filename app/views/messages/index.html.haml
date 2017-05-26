@@ -3,7 +3,8 @@
 .chat-side
   .chat-side__user
     .chat-side__user-content
-      .chat-side__user-name seo
+      .chat-side__user-name
+        = current_user.name
       %a.chat-side__user--new-group
         %i.fa.fa-pencil-square
       %a.chat-side__user--edit-user
