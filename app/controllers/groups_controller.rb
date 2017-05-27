@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   def index
+    side_bar
   end
 
   def new
@@ -15,6 +16,12 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @group = Group.find(params[:id])
+    @message = Message.new
+    side_bar
+    render "index"
+  end
   def edit
     current_group
   end
@@ -34,5 +41,9 @@ class GroupsController < ApplicationController
 
   def current_group
     @group = Group.find(params[:id])
+  end
+
+  def side_bar
+    @groups = current_user.groups.order('id DESC').limit(5)
   end
 end
