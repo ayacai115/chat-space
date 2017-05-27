@@ -1,0 +1,16 @@
+%div.chat-side
+  %div.chat-side__user
+    %div.chat-side__user-content
+      %div.chat-side__user-name
+        = current_user.name
+      %a.chat-side__user--new-group
+        %i.fa.fa-pencil-square
+      %a.chat-side__user--edit-user
+        %i.fa.fa-cog
+  %div.chat-side__groups
+  - @groups.each do |group|
+    %div.chat-side__groups-list
+      %div.chat-side__group
+        %div.chat-side__group-name
+          = group.name
+        %div.chat-side__group-message Goodbye world.

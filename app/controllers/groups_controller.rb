@@ -1,5 +1,8 @@
 class GroupsController < ApplicationController
   before_action :side_bar, only: [:index, :show]
+  def index
+    render :_side_bar
+  end
 
   def new
     @group = Group.new

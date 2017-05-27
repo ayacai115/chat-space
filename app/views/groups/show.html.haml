@@ -1,18 +1,21 @@
-%div.chat-side
-  %div.chat-side__user
-    %div.chat-side__user-content
-      %div.chat-side__user-name
-        = current_user.name
-      %a.chat-side__user--new-group
-        %i.fa.fa-pencil-square
-      %a.chat-side__user--edit-user
-        %i.fa.fa-cog
-  %div.chat-side__groups
-  - @groups.each do |group|
-    %div.chat-side__groups-list
-      %div.chat-side__group
-        %div.chat-side__group-name
-          = group.name
-        %div.chat-side__group-message Goodbye world.
-
-= render :partial => "group_messages" if @group
+= render :partial => "side_bar" if @group
+.chat-main
+  .chat-main__header
+    .chat-main__header--group
+      .chat-main__header--group-name
+        = @group.name if @group
+      %a.chat-main__header--group-edit-btn edit
+    - if @group
+      .chat-main__header-members-left
+        = "MEMBERS: #{ @group.users.map{ |user| user.name }}"
+    .chat-main__header-members-right
+  .chat-main__body
+    .chat-main__body--message
+      .chat-main__body--message-name seo
+      .chat-main__body--message-time 2016/9/21 06:16:55
+      .chat-main__body--message-body Hello world!
+  .chat-main__footer
+    = form_for [@group, @message] do |f|
+      = f.text_field :body, placeholder: 'type messages', class: 'chat-main__footer-form'
+      = f.file_field :image, class: 'fa fa-image'
+      = f.submit('Send', class: 'submit-btn')
