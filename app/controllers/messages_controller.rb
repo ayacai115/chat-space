@@ -1,5 +1,15 @@
 class MessagesController < ApplicationController
-  def index
-    @groups = current_user.groups.order('id DESC').limit(5)
+  def create
+    @message = Message.create.new(message_params)
+    if @message.save
+      redirect_to group_path(params[:group_id])
+    else
+      render group_path(params[:group_id])
+    end
+  end
+
+  private
+  def message_params
+    params.require(:message).permit(:body).merge(group_id: params[:group_id], user_id: current_user.id)
   end
 end
