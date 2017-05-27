@@ -25,7 +25,7 @@ body {
   .chat-side {
     float: left;
     height: 100%;
-    width: 300px;
+    width: $chat-side-width;
     background: #2f3e51;
     &__user {
       height: 28px * 2 + 40px;
@@ -93,15 +93,27 @@ body {
         }
       }
       &-members {
-        font-size: 12px;
-        color: #999;
+        &-left {
+          font-size: 12px;
+          color: #999;
+          float: left;
+        }
+        &-right {
+          font-size: 12px;
+          color: #999;
+          float: left;
+          margin-left: 5px;
+        }
       }
     }
     &__body {
-      height: calc(100% - #{$attention-height} - #{$header-height} - #{$header-border-bottom} - #{$footer-height});
+      height: calc(100% - #{$header-height} - #{$header-border-bottom} - #{$footer-height});
       padding: 0 40px;
+      @include clearfix;
       &--message {
-        @include clearfix;
+        float: left;
+        width: 100%;
+        height: 100%;
         &-name {
           padding-top: 40px;
           font-size: 16px;
@@ -129,39 +141,33 @@ body {
       width: 100%;
       height: $footer-height;
       &-form {
-        width: 100%;
+        border: none;
+        width: calc(100% - 10px - #{$form-margin-left} - #{$submit-btn-margin-left} - #{$submit-btn-width} - #{$submit-btn-margin-right});
         height: 50px;
         margin-top: 20px;
         background-color: $white;
         float: left;
-        p {
-          float: left;
-          padding-top: 13px;
-          padding-left: 50px;
-          font-size: 16px;
-          color: $chat-color;
-        }
-        i {
-          float: left;
-          margin-top: 16px;
-          padding-left: 620px;
-          margin-right: 10px;
-        }
-        .submit-btn {
-          float: left;
-          width: 100px;
-          height: 50px;
-          background-color: $blue;
-          float: left;
-          margin-right: 40px;
-          margin-left: 15px;
-          p {
-            color: $white;
-            padding-left: 27px;
-          }
-        }
+        margin-left: $form-margin-left;
+        padding-left: 10px;
+      }
+      .submit-btn {
+        float: left;
+        width: $submit-btn-width;
+        height: 50px;
+        background-color: $blue;
+        float: left;
+        margin-right: $submit-btn-margin-right;
+        margin-left: $submit-btn-margin-left;
+        border: none;
+        color: $white;
+        margin-top: 20px;
       }
     }
+  }
+  .fa-image {
+    position: relative;
+    left: 790px;
+    bottom: 35px;
   }
 }
 
