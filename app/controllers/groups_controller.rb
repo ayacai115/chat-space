@@ -27,12 +27,12 @@ class GroupsController < ApplicationController
     end
   end
 
-  def current_group
-    @group = Group.find(params[:id])
-  end
-
   private
   def create_params
     params.require(:group).permit(:name, {user_ids: []})
+  end
+
+  def current_group
+    @group = Group.find(params[:id])
   end
 end

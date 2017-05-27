@@ -3,11 +3,8 @@
   - if @group.errors.any?
     .chat-group-form__errors
       %h2
-        = @group.errors.count
-      %ul
         - @group.errors.full_messages.each do |msg|
-          %li
-            = msg
+          = msg
 
   = form_for @group, html: { id: 'new_chat_group', class: 'new_chat_group', "accept-charset" => "UTF-8" } do |f|
     .chat-group-form__field.clearfix
