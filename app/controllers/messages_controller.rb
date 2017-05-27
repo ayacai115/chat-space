@@ -1,12 +1,5 @@
 class MessagesController < ApplicationController
   def create
-    @group = current_user.groups.new(create_params)
-    if @group.save
-      redirect_to root_path
-    else
-      render new_group_path
-    end
-
     @message = Message.create.new(message_params)
     if @message.save
       redirect_to group_path(params[:group_id])

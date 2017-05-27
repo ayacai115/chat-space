@@ -1,9 +1,6 @@
 class GroupsController < ApplicationController
   before_action :side_bar, only: [:index, :show]
 
-  def index
-  end
-
   def new
     @group = Group.new
   end
@@ -20,7 +17,6 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @message = Message.new
-    render "index"
   end
   def edit
     current_group

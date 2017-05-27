@@ -16,5 +16,5 @@
   .chat-main__footer
     = form_for [@group, @message] do |f|
       = f.text_field :body, placeholder: 'type messages', class: 'chat-main__footer-form'
+      = f.file_field :image, class: 'fa fa-image'
       = f.submit('Send', class: 'submit-btn')
-      %i.fa.fa-image
