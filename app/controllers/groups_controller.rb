@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
+  before_action :side_bar, only: [:index, :show]
+
   def index
-    side_bar
   end
 
   def new
@@ -19,7 +20,6 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @message = Message.new
-    side_bar
     render "index"
   end
   def edit
@@ -33,6 +33,7 @@ class GroupsController < ApplicationController
       render :edit
     end
   end
+
 
   private
   def create_params
