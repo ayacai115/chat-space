@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.new(create_params)
     if @group.save
-      redirect_to group_path(@group)
+      redirect_to group_path(@group), flash: { notice: "チャットグループが作成されました。" }
     else
       render new_group_path
     end
