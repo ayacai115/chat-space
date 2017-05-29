@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_path(params[:group_id])
     else
-      redirect_to group_path(params[:group_id])
+      redirect_to group_path(params[:group_id]), flash: { alert: "メッセージを入力してください。" }
     end
   end
 
