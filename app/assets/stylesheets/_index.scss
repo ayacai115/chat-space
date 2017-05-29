@@ -93,17 +93,9 @@ body {
         }
       }
       &-members {
-        &-left {
-          font-size: 12px;
-          color: #999;
-          float: left;
-        }
-        &-right {
-          font-size: 12px;
-          color: #999;
-          float: left;
-          margin-left: 5px;
-        }
+        font-size: 12px;
+        color: #999;
+        float: left;
       }
     }
     &__body {
@@ -155,19 +147,18 @@ body {
         width: $submit-btn-width;
         height: 50px;
         background-color: $blue;
-        float: left;
         margin-right: $submit-btn-margin-right;
         margin-left: $submit-btn-margin-left;
         border: none;
         color: $white;
-        margin-top: 20px;
+        margin-top: -4px;
       }
     }
   }
   .fa-image {
     position: relative;
-    left: 790px;
-    bottom: 35px;
+    top: 33px;
+    right: 30px;
   }
 }
 

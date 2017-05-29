@@ -1,14 +1,12 @@
-= render :partial => "side_bar" if @group
+= render :partial => "side_bar"
 .chat-main
   .chat-main__header
     .chat-main__header--group
       .chat-main__header--group-name
         = @group.name if @group
       %a.chat-main__header--group-edit-btn edit
-    - if @group
-      .chat-main__header-members-left
+      .chat-main__header-members
         = "MEMBERS: #{ @group.users.map{ |user| user.name }}"
-    .chat-main__header-members-right
   .chat-main__body
     .chat-main__body--message
       .chat-main__body--message-name seo
@@ -17,5 +15,6 @@
   .chat-main__footer
     = form_for [@group, @message] do |f|
       = f.text_field :body, placeholder: 'type messages', class: 'chat-main__footer-form'
-      = f.file_field :image, class: 'fa fa-image'
+      = f.label 'image', { class: 'fa fa-image' } do
+        = f.file_field :image, style: "display: none;", id: 'message_image'
       = f.submit('Send', class: 'submit-btn')
