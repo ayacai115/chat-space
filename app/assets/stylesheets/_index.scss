@@ -75,7 +75,6 @@ body {
       height: $header-height;
       border-bottom: $header-border-bottom solid #eee;
       &--group {
-        @include clearfix;
         &-name {
           padding-top: 35px;
           padding-bottom: 15px;
@@ -100,8 +99,8 @@ body {
     }
     &__body {
       height: calc(100% - #{$header-height} - #{$header-border-bottom} - #{$footer-height});
+      overflow-y: scroll;
       padding: 0 40px;
-      @include clearfix;
       &--message {
         float: left;
         width: 100%;
