@@ -24,7 +24,7 @@ body {
   height: 100%;
   .chat-side {
     float: left;
-    height: 100%;
+    min-height: 100%;
     width: $chat-side-width;
     background: #2f3e51;
     &__user {
@@ -98,7 +98,7 @@ body {
       }
     }
     &__body {
-      height: calc(100% - #{$header-height} - #{$header-border-bottom} - #{$footer-height});
+      max-height: calc(100% - #{$header-height} - #{$header-border-bottom} - #{$footer-height});
       overflow-y: scroll;
       padding: 0 40px;
       &--message {

@@ -8,9 +8,4 @@
       %a.chat-side__user--edit-user
         %i.fa.fa-cog
   %div.chat-side__groups
-  - @groups.each do |group|
-    %div.chat-side__groups-list
-      %div.chat-side__group
-        %div.chat-side__group-name
-          = group.name
-        %div.chat-side__group-message Goodbye world.
+  = render partial: 'groups/group', collection: @groups, as: :group
