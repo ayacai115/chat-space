@@ -1,0 +1,11 @@
+%div.chat-side__groups-list
+  %div.chat-side__group
+    %div.chat-side__group-name
+      = group.name
+    %div.chat-side__group-message
+      - if group.messages.empty?
+        = 'まだメッセージはありません。'
+      - elsif group.messages.last.body.present?
+        = group.messages.last.body
+      - else
+        = '画像が投稿されています。'

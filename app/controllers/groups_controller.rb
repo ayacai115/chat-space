@@ -18,9 +18,10 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
+    current_group
     @message = Message.new
   end
+
   def edit
     current_group
   end
@@ -35,6 +36,7 @@ class GroupsController < ApplicationController
 
 
   private
+
   def create_params
     params.require(:group).permit(:name, {user_ids: []})
   end
@@ -44,6 +46,6 @@ class GroupsController < ApplicationController
   end
 
   def side_bar
-    @groups = current_user.groups.order('id DESC').limit(5)
+    @groups = current_user.groups
   end
 end
