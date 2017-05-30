@@ -8,7 +8,7 @@
       .chat-main__header-members
         = "MEMBERS: #{ @group.users.map{ |user| user.name }}"
   .chat-main__body
-    = render :partial => "message"
+    = render partial: 'groups/message', collection: @group.messages, as: :message
   .chat-main__footer
     = form_for [@group, @message] do |f|
       = f.text_field :body, placeholder: 'type messages', class: 'chat-main__footer-form'

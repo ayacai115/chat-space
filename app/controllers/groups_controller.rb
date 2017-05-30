@@ -36,6 +36,7 @@ class GroupsController < ApplicationController
 
 
   private
+
   def create_params
     params.require(:group).permit(:name, {user_ids: []})
   end
@@ -45,6 +46,6 @@ class GroupsController < ApplicationController
   end
 
   def side_bar
-    @groups = current_user.groups.all
+    @groups = current_user.groups
   end
 end
