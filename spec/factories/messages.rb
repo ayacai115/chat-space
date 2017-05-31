@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :message do
-    body       "テスト用bodyですです"
+    body       { Faker::HarryPotter.quote }
     image      { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'images', 'brown_leaf.png'), 'image/png') }
     group_id   { |i| "Group#{ i }" }
     user_id    { |i| "User#{ i }" }
