@@ -18,16 +18,16 @@ class GroupsController < ApplicationController
   end
 
   def show
-    current_group
+    set_group
     @message = Message.new
   end
 
   def edit
-    current_group
+    set_group
   end
 
   def update
-    if current_group.update(create_params)
+    if set_group.update(create_params)
       redirect_to root_path
     else
       render :edit
@@ -41,7 +41,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, {user_ids: []})
   end
 
-  def current_group
+  def set_group
     @group = Group.find(params[:id])
   end
 
