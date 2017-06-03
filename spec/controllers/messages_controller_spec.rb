@@ -9,34 +9,37 @@ describe MessagesController do
 
     describe 'POST #create' do
       context 'with valid params' do
-        it "saves the new message in the database" do
-          group = create(:group)
+        before :each do
+          @group = create(:group)
           message = build(:message)
+        end
+
+        it "saves the new message in the database" do
           expect{
-            post :create, group_id: group[:id], message: attributes_for(:message)
-          }.to change(Message, :count).by(1)
+            post :create, group_id: @group[:id], message: attributes_for(:message)
+            }.to change(Message, :count).by(1)
         end
 
         it "redirects to groups#show" do
-          group = create(:group)
-          message = build(:message)
-          post :create, group_id: group[:id], message: attributes_for(:message)
-          expect(response).to redirect_to group_path(group[:id])
+          post :create, group_id: @group[:id], message: attributes_for(:message)
+          expect(response).to redirect_to group_path(@group[:id])
         end
       end
 
       context "with invalid params" do
+        before :each do
+          @group = create(:group)
+        end
+
         it "doesn't save the message" do
-          group = create(:group)
           expect{
-            post :create, group_id: group[:id], message: attributes_for(:invalid_message)
+            post :create, group_id: @group[:id], message: attributes_for(:invalid_message)
           }.not_to change(Message, :count)
         end
 
         it "redirects to group_path" do
-          group = create(:group)
-          post :create, group_id: group[:id], message: attributes_for(:invalid_message)
-          expect(response).to redirect_to group_path(group[:id])
+          post :create, group_id: @group[:id], message: attributes_for(:invalid_message)
+          expect(response).to redirect_to group_path(@group[:id])
         end
       end
     end

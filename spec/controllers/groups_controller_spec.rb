@@ -9,21 +9,20 @@ describe GroupsController do
     end
 
     describe 'GET #show' do
+      before :each do
+        @group = create(:group)
+        get :show, id: @group
+      end
+
       it "assigns the requested group to @group" do
-        group = create(:group)
-        get :show, id: group
-        expect(assigns(:group)).to eq group
+        expect(assigns(:group)).to eq @group
       end
 
       it "assigns the requested message to @message" do
-        group = create(:group)
-        get :show, id: group
         expect(assigns(:message)).to be_truthy
       end
 
       it "renders the :show template" do
-        group = create(:group)
-        get :show, id: group
         expect(response).to render_template :show
       end
     end
