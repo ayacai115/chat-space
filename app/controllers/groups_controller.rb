@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
 
   def update
     if set_group.update(create_params)
-      redirect_to root_path
+      redirect_to group_path(set_group)
     else
       render :edit
     end
