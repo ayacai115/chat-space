@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :side_bar, only: [:index, :show]
-  before_action :set_group, only: [:show, :edit, :update]
+  before_action :side_bar, only: [:index]
+  before_action :set_group, only: [ :edit, :update]
   def index
     render :_side_bar
   end
@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @message = Message.new
+    redirect_to group_messages_path(params[:id])
   end
 
   def edit

@@ -59,7 +59,6 @@ html {
     .chat-main {
       display: table-cell;
       width: calc(100vw - 300px);
-      background-color: #AAA;
       height: 100%;
       position: relative;
       &__header {
@@ -127,6 +126,7 @@ html {
         height: $footer-height;
         position: absolute;
         bottom: 0;
+        background-color: #AAA;
         &-form {
           border: none;
           width: calc(100% - 10px - #{$form-margin-left} - #{$submit-btn-margin-left} - #{$submit-btn-width} - #{$submit-btn-margin-right});
