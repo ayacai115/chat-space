@@ -36,12 +36,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'
-  gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'faker'
 end
 
 group :test do
-  gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
 end
 
 group :development do

@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :side_bar, only: [:index, :show]
+  before_action :set_group, only: [:show, :edit, :update]
   def index
     render :_side_bar
   end
@@ -18,17 +19,15 @@ class GroupsController < ApplicationController
   end
 
   def show
-    current_group
     @message = Message.new
   end
 
   def edit
-    current_group
   end
 
   def update
-    if current_group.update(create_params)
-      redirect_to root_path
+    if set_group.update(create_params)
+      redirect_to group_path(@group)
     else
       render :edit
     end
@@ -41,7 +40,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, {user_ids: []})
   end
 
-  def current_group
+  def set_group
     @group = Group.find(params[:id])
   end
 
