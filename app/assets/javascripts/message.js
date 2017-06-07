@@ -10,8 +10,6 @@ $(function() {
   $('#js-form').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData($(this).get(0));
-    for (var [key, value] of formData.entries()) {
-    }
     $.ajax({
       type: 'POST',
       url: location.href,
@@ -21,14 +19,12 @@ $(function() {
       processData: false,
     })
     .done(function(data) {
-      console.log(data);
       $('.chat-main__body').append(buildHTML(data));
-      var height = $('.chat-main__body').height();
       $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 0);
       $('.chat-main__footer-form').val('');
     })
     .fail(function() {
-      alert('しっぱーい');
+      alert('失敗しました。');
     });
   });
 });
