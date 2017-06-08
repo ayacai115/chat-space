@@ -1,8 +1,8 @@
-.chat-main__body--message
+%li.chat-main__body--message
   .chat-main__body--message-name
     = message.user.name
   .chat-main__body--message-time
-    = message.created_at
+    = message.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
   .chat-main__body--message-body
     = message.body
     = image_tag message.image
