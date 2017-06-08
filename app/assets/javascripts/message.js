@@ -2,6 +2,7 @@ $(function() {
   function buildHTML(data) {
     var listItem = $('<li class="chat-main__body--message">');
     listItem.append($("<div class='chat-main__body--message-name'>" + data.name + "</div>"));
+    console.log(data.created_at);
     listItem.append($("<div class='chat-main__body--message-time'>" + data.created_at + "</div>"));
     listItem.append($("<div class='chat-main__body--message-body'>" + data.body + "</div>"));
     return listItem
@@ -19,8 +20,9 @@ $(function() {
       processData: false,
     })
     .done(function(data) {
-      $('.chat-main__body').append(buildHTML(data));
-      $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 0);
+      var $chatMain = $('.chat-main__body')
+      $chatMain.append(buildHTML(data));
+      $chatMain.animate({scrollTop: $chatMain[0].scrollHeight}, 0);
       $('.chat-main__footer-form').val('');
     })
     .fail(function() {
