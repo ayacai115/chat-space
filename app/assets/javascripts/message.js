@@ -2,7 +2,6 @@ $(function() {
   function buildHTML(data) {
     var listItem = $('<li class="chat-main__body--message">');
     listItem.append($("<div class='chat-main__body--message-name'>" + data.name + "</div>"));
-    console.log(data.created_at);
     listItem.append($("<div class='chat-main__body--message-time'>" + data.created_at + "</div>"));
     listItem.append($("<div class='chat-main__body--message-body'>" + data.body + "</div>"));
     return listItem
