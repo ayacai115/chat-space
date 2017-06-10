@@ -28,4 +28,25 @@ $(function() {
       alert('失敗しました。');
     });
   });
+
+  var messagesList = $(".chat-main__body");
+
+  function updateMessages() {
+    $.ajax({
+      type: 'GET',
+      url: location.href,
+      dataType: 'json',
+    })
+    .done(function(data) {
+      messagesList.html('');
+      data.forEach(function(value, index){
+        var html = buildHTML(data[index]);
+        messagesList.append(html);
+      });
+    })
+    .fail(function() {
+      alert('問題が発生しました');
+    });
+  };
+  setInterval(updateMessages, 5000);
 });
