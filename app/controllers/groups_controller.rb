@@ -1,7 +1,8 @@
 class GroupsController < ApplicationController
-  before_action :side_bar, only: [:index]
   before_action :set_group, only: [ :edit, :update]
+
   def index
+    @groups = current_user.groups
     render :_side_bar
   end
 
@@ -23,6 +24,8 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    group = Group.find(params[:id])
+    @users = group.users.where.not(id: current_user.id)
   end
 
   def update
@@ -37,14 +40,10 @@ class GroupsController < ApplicationController
   private
 
   def create_params
-    params.require(:group).permit(:name, {user_ids: []})
+    params.require(:group).permit(:name).merge(user_ids: params[:group][:user_ids])
   end
 
   def set_group
     @group = Group.find(params[:id])
-  end
-
-  def side_bar
-    @groups = current_user.groups
   end
 end
