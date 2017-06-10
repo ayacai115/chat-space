@@ -76,7 +76,6 @@
       box-sizing: border-box;
     }
   }
-
   .chat-group-user {
     padding: 0 15px;
     line-height: 50px;
@@ -90,12 +89,16 @@
 
     .chat-group-user__name {
       float: left;
+      padding-top: 15px;
     }
 
     .chat-group-user__btn {
       float: right;
       display: inline-block;
       cursor: pointer;
+      border: none;
+      padding-top: 15px;
+      background-color: $white;
 
       &.chat-group-user__btn--add {
         color: #38aef0;

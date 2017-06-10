@@ -91,7 +91,7 @@ html {
         }
       }
       &__body {
-        max-height: calc(100% - #{$header-height} - #{$header-border-bottom} - #{$footer-height});
+        height: calc(100% - #{$header-height} - #{$header-border-bottom} - #{$footer-height});
         overflow-y: scroll;
         padding: 0 40px;
         &--message {
