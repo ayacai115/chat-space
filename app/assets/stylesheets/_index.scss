@@ -19,7 +19,7 @@ html {
       width: $chat-side-width;
       background: #2f3e51;
       &__user {
-        height: 28px * 2 + 40px;
+        height: $chat-side-user-height;
         background: #253141;
         padding: 0 20px;
         &-name {
@@ -40,6 +40,8 @@ html {
         }
       }
       &__groups {
+        overflow-y: scroll;
+        height: calc(100vh - #{$chat-side-user-height});
         &-list {
           .chat-side__group {
             padding: 20px;
@@ -156,5 +158,3 @@ html {
     }
   }
 }
-
-

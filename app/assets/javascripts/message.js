@@ -43,6 +43,8 @@ $(function() {
         var html = buildHTML(data[index]);
         messagesList.append(html);
       });
+      messagesList.animate({scrollTop: messagesList[0].scrollHeight}, 0);
+      $("body").animate({scrollTop: $(document).height()}, 0);
     })
     .fail(function() {
       alert('問題が発生しました');
