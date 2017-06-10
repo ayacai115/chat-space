@@ -29,10 +29,10 @@ $(function() {
       processData: false,
     })
     .done(function(data) {
-      for (var i = 0; i < data.length; i++){
-        var html = buildHTML(data[i])
+      data.forEach(function(value, index){
+        var html = buildHTML(data[index]);
         resultList.append(html);
-      };
+        });
     })
     .fail(function() {
       alert('ユーザー検索に失敗しました。');
@@ -50,5 +50,5 @@ $(function() {
 
   $(".chat-group-form__field").on("click", ".user-search-remove", function() {
     $(this).parent().remove();
-  })
+  });
 });
