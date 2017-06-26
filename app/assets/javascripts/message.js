@@ -49,5 +49,5 @@ $(function() {
       alert('問題が発生しました');
     });
   };
-  setInterval(updateMessages, 5000);
+  //setInterval(updateMessages, 5000);
 });

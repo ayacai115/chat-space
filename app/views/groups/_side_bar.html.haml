@@ -3,9 +3,9 @@
     .chat-side__user-content
       .chat-side__user-name
         = current_user.name
-      %a.chat-side__user--new-group
+      = link_to new_group_path, method: :get, class: "chat-side__user--new-group" do
         %i.fa.fa-pencil-square
-      %a.chat-side__user--edit-user
+      = link_to edit_user_registration_path, method: :get, class: "chat-side__user--edit-user" do
         %i.fa.fa-cog
   .chat-side__groups
     = render @groups
