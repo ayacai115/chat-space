@@ -1,10 +1,10 @@
-= render :partial => "groups/side_bar"
+= render "groups/side_bar"
 .chat-main
   .chat-main__header
     .chat-main__header--group
       .chat-main__header--group-name
         = @group.name if @group
-      %a.chat-main__header--group-edit-btn edit
+      = link_to "edit", edit_group_path(@group.id), class: "chat-main__header--group-edit-btn"
       .chat-main__header-members
         = "MEMBERS: #{ @group.users.map{ |user| user.name }}"
   %ul.chat-main__body
